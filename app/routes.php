@@ -8,7 +8,7 @@ use App\Controller\LogsController;
 use App\Controller\RedirectController;
 
 $app->get('/logs', [LogsController::class, 'list']);
-$app->get('/location/{latitude}/{longitude}', [RedirectController::class, 'googleMaps'])
+$app->get('/location', [RedirectController::class, 'googleMaps'])
     ->setName('maps');
 
 $app->post('/logs', [LogsController::class, 'store']);

@@ -7,9 +7,10 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class RedirectController
 {
-    public function googleMaps(Request $request, Response $response, array $args): Response
+    public function googleMaps(Request $request, Response $response): Response
     {
-        $googleMaps = "https://www.google.com/maps/@" . $args['latitude'] . "," . $args['longitude'];
+        $args = $request->getQueryParams();
+        $googleMaps = "https://www.google.com/maps/@" . $args['la'] . "," . $args['lo'];
 
         return $response->withHeader('Location', $googleMaps)
             ->withStatus(301);

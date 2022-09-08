@@ -18,7 +18,7 @@ class TwilioService
 
     public function sendTrashAlert(string $contact, string $latitude, string $longitude)
     {
-        $link = $_ENV['APP_HOST'] . '/location/' . $latitude . '/' .$longitude;
+        $link = $_ENV['APP_HOST'] . '/location?la=' . $latitude . '&lo=' .$longitude;
 
         return $this->client->messages->create($contact, [
             'from' => '+14454475070',
