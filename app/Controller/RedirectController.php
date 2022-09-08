@@ -10,7 +10,7 @@ class RedirectController
     public function googleMaps(Request $request, Response $response): Response
     {
         $args = $request->getQueryParams();
-        $googleMaps = "https://www.google.com/maps/@" . $args['la'] . "," . $args['lo'];
+        $googleMaps = "https://maps.google.com/?q=" . $args['la'] . "," . $args['lo'];
 
         return $response->withHeader('Location', $googleMaps)
             ->withStatus(301);
