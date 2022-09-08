@@ -1,0 +1,21 @@
+version: "3.1"
+
+services:
+  db:
+    image: mariadb:10
+    restart: always
+    environment:
+      MARIADB_DATABASE: sanjay
+      MARIADB_ROOT_PASSWORD: passwordR0FL
+    volumes:
+      - database:/var/lib/mysql
+
+  app:
+    build:
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+volumes:
+  database:
